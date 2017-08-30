@@ -14,6 +14,7 @@ app.use(bodyParser.urlencoded({
 
 app.use(bodyParser.json());
 
+
 app.get('/', function (req, res, next) {
     res.send('Hello world!');
 });
@@ -32,34 +33,8 @@ app.get("/allpear", function (req, res, next) {
 
 
 
-app.post("/addpear", function (req, res, next) {
-    var file = './data.json'
-    var obj = {
-        id: req.body.id
-    }
-    jsonfile.readFile(file, function (err, result) {
-        if (err) {
-            console.log("error in reading file");
-        } else {
-            result.push(obj);
-            jsonfile.writeFile(file, result, function (err) {
 
-
-                if (err) {
-                    console.log(err);
-                } else {
-                    res.send("successfull");
-                }
-            })
-        }
-
-    });
-
-})
-
-
-
-var port = process.env.PORT || 9000;
+var port = process.env.PORT || 8000;
  
 // starting express server
 app.listen(port, function() {
