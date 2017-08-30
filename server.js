@@ -20,7 +20,7 @@ app.get('/', function (req, res, next) {
 app.use(express.static('static'))
 
 
-app.get("/allpear", function (req, res, next) {
+app.get("/userList", function (req, res, next) {
     var file = './data.json'
     jsonfile.readFile(file, function (err, obj) {
         console.dir(obj);
