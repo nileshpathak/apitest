@@ -6,31 +6,27 @@ var bodyParser = require('body-parser');
 
 var cors = require('cors');
 app.use(cors());
-
 app.use(bodyParser.urlencoded({
     extended: true
 }));
-
-
 app.use(bodyParser.json());
-
 
 app.get('/', function (req, res, next) {
     res.send('Hello world!');
 });
 
-app.use(express.static('static'))
 
+
+app.use(express.static('static'))
 
 
 app.get("/allpear", function (req, res, next) {
     var file = './data.json'
     jsonfile.readFile(file, function (err, obj) {
-        //console.dir(obj);
+        console.dir(obj);
         res.json(obj);
     });
 })
-
 
 
 
